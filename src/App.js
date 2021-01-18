@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const urls = [
+    {
+      url: "https://www.youtube.com/",
+      title: "YouTube"
+    },
+    {
+      url: "https://www.linkedin.com",
+      title: "Linkedin"
+    }
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {urls.map((social, index) => {
+        return (
+          <button key={index} onClick={() => window.open(social.url, "_blank")}>
+            {social.title}
+          </button>
+        );
+      })}
     </div>
   );
 }
